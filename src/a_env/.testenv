@@ -1,0 +1,4 @@
+IL_BR_KC_USR='user'
+IL_BR_KC_PWD='password'
+IL_BR_KC_LOGIN_URL='http://127.0.0.1:8080/auth'
+IL_BR_KC_LOGIN_REALM='master'

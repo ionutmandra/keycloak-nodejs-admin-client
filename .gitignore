@@ -4,3 +4,5 @@ npm-debug.log
 lib
 yarn-error.log
 .DS_Store
+src/a_env/.localenv
+src/a_configs/configs.ts

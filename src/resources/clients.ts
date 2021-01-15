@@ -10,7 +10,7 @@ import RoleRepresentation from '../defs/roleRepresentation';
 import UserRepresentation from '../defs/userRepresentation';
 import UserSessionRepresentation from '../defs/userSessionRepresentation';
 import Resource from './resource';
-import ResourceEvaluation from "../defs/resourceEvaluation";
+import ResourceEvaluation from '../defs/resourceEvaluation';
 
 export interface ClientQuery {
   first?: number;
@@ -465,7 +465,7 @@ export class Clients extends Resource<{realm?: string}> {
   >({
     method: 'GET',
     path: '{id}/authz/resource-server/resource',
-    urlParamKeys: ['id']
+    urlParamKeys: ['id'],
   });
 
   public createResource = this.makeUpdateRequest<
@@ -475,7 +475,7 @@ export class Clients extends Resource<{realm?: string}> {
   >({
     method: 'POST',
     path: '{id}/authz/resource-server/resource',
-    urlParamKeys: ['id']
+    urlParamKeys: ['id'],
   });
 
   public delResource = this.makeRequest<
@@ -584,8 +584,8 @@ export class Clients extends Resource<{realm?: string}> {
   >({
     method: 'GET',
     path: '/{id}/authz/resource-server/scope',
-    urlParamKeys: ['id']
-  })
+    urlParamKeys: ['id'],
+  });
   public listScopesByResource = this.makeRequest<
     {id: string; resourceName: string},
     {id: string; name: string}[]
