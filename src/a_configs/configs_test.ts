@@ -6,69 +6,57 @@ export class Configs {
     }
 
     public getConfigFor(env: String, market: String) {
-        if(env=='sandbox' && market =='mkt'){
-            return this.C1;
+        if (env == 'sandbox' && market == 'M1') {
+            return this.M1;
         }
 
-        throw 'market and env combination does not exist';
+        throw new Error('market and env combination does not exist');
     }
 
-    C1 = {
-        //REALM
-        realmName: 'rname',
+    M1 = {
+        // REALM
+        realmName: '',
 
-        //SESSION
+        // SESSION
         accessTokenLifespan: 300,
         ssoSessionIdleTimeout: 1800,
 
-        //JS CLIENT
-        jsClientId: 'client1',
-        redirectUris: ['http://localhost:3001/*'],
-        defaultClientScopes: ['email', 'profile'],
-        optionalClientScopes: ['microprofile-jwt', 'offline_access'],
+        // JS CLIENT
+        clients: [
+        {
+            jsClientId: '',
+            redirectUris: ['http://localhost:3000/*'],
+            defaultClientScopes: ['email', 'profile'],
+            optionalClientScopes: ['microprofile-jwt', 'offline_access'],
+        }
+    ],
 
-        //THEME
-        //loginTheme: 'thname'
+        // THEME
+        // loginTheme: ''
 
-        //LANGUAGE
+        // LANGUAGE
         internationalizationEnabled: true,
         supportedLocales: ['en'],
 
-        //IDP
+        // IDP
         idps: [
             {
-                alias: 'idp1',
-                displayName: 'idp1',
-                //firstBrokerLoginFlowAlias: 'FirstBrokerLoginAutomaticAccountLink',
+                alias: '',
+                displayName: '',
+                // firstBrokerLoginFlowAlias: 'FirstBrokerLoginAutomaticAccountLink',
                 providerId: 'keycloak-oidc',
                 config: {
-                    'authorizationUrl': '...',
-                    'tokenUrl': '...',
-                    'userInfoUrl': '...',
+                    'authorizationUrl': '',
+                    'tokenUrl': '',
+                    'userInfoUrl': '',
                     'loginHint': 'true',
-                    //'uiLocales':'true'
+                    // 'uiLocales':'true'
                     'defaultScope': 'email',
                     'clientAuthMethod': 'client_secret_post',
-                    'clientId': '...',
-                    'clientSecret': '...'
-                }
-            },
-            {
-                alias: 'idp2',
-                displayName: 'idp2',
-                //firstBrokerLoginFlowAlias: 'FirstBrokerLoginAutomaticAccountLink',
-                providerId: 'keycloak-oidc',
-                config: {
-                    'authorizationUrl': '...',
-                    'tokenUrl': '...',
-                    'userInfoUrl': '...',
-                    'loginHint': 'true',
-                    //'uiLocales':'true'
-                    'defaultScope': 'email',
-                    'clientAuthMethod': 'client_secret_post',
-                    'clientId': '...',
-                    'clientSecret': '...'
-                }
-            }]
+                    'clientId': '',
+                    'clientSecret': '',
+                },
+            }],
     };
 }
+
